@@ -1,2 +1,2 @@
 # SCP
- Specific Co-expression Perturbation Based Cancer Samples Multi-Classification Edit Manage topics
+Python implementation of the Specific Co-Expression Perturbation (SCP) based samples multi-classification for cancer staging, grading and subtyping. It includes co-expression network construction, specific co-expression identification, co-expression perturbation based label prediction of cancer sample.
