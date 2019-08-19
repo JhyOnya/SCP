@@ -20,8 +20,12 @@ def runAll(minNum, coNum, mult, remainNum, remainRatio, dataPath, cachePath):
 
 
 if __name__ == '__main__':
-
+    
+    # 200 is the number of edges remained
+    # 0.7 for BRCA data
     preSet = [200, 0.7]
+    # 0.8 for other data
+    # preSet = [200, 0.8]
 
     for i in range(len(sys.argv) - 1):
         preSet[i] = sys.argv[i + 1]
