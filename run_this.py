@@ -22,10 +22,9 @@ def runAll(minNum, coNum, mult, remainNum, remainRatio, dataPath, cachePath):
 if __name__ == '__main__':
     
     # 200 is the number of edges remained
-    # 0.7 for BRCA data
-    preSet = [200, 0.7]
-    # 0.8 for other data
-    # preSet = [200, 0.8]
+    # 0.7 for BRCA data, 0.8 for other data
+    # preSet = [200, 0.7]
+    preSet = [200, 0.8]
 
     for i in range(len(sys.argv) - 1):
         preSet[i] = sys.argv[i + 1]
@@ -33,7 +32,7 @@ if __name__ == '__main__':
     remainNum = int(preSet[0])
     remainRatio = float(preSet[1])
 
-    testData = "BRCA_Subtypes"
+    testData = "LUSC_Stages"
     preName = os.path.basename(__file__).split(".")[0]
     cachePath = "./cache_" + testData + "_" + str(remainNum) + "/"
 
