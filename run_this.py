@@ -35,9 +35,6 @@ if __name__ == '__main__':
     # preSet = ['KIRC_Grades', 0.8, 100, 10]
     # preSet = ['BRCA_Subtypes', 0.7, 100, 10]
 
-    for i in range(len(sys.argv) - 1):
-        preSet[i] = sys.argv[i + 1]
-
     runAll(
         remainRatio=float(preSet[1]),
         remainNum=int(preSet[2]),  # each type remain edges' count
