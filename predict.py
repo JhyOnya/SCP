@@ -4,8 +4,7 @@ from sklearn import metrics
 import spearmonR as sprm
 
 
-def predict(coNum, mult):
-
+def predict(coNum, mult=0.66):
     typeTrue = []
     typePred = []
     for preTime in range(coNum):
@@ -59,8 +58,8 @@ def predictSmpling(edgesByType, trainAll, sampleData, mult):
     return predictType
 
 
-def predictRun(dataCache, coNum, mult):
+def predictRun(dataCache, coNum):
     global data
     data = dataCache
-    print("5 test")
-    predict(coNum=coNum, mult=mult)
+    print("\n5 test")
+    predict(coNum=coNum)

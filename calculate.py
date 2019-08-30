@@ -84,7 +84,7 @@ def outRelations(dataSave):
         for a, b, j in zip(relationEdge[0], relationEdge[1], range(len(relationEdgesA))):
             dataPre.append(data.edges[i][a][b])
             group[j] = data.relateEdges[a][b]
-        datas.append(data)
+        datas.append(dataPre)
 
     # output the file
     edges = pd.DataFrame({"type": group,
@@ -100,13 +100,13 @@ def outRelations(dataSave):
 def calculateRun(dataCache, remainNum, cachePath):
     global data
     data = dataCache
-    print("2 calculate the similarity matrix")
+    print("\n2 calculate the similarity matrix")
     trainByType()
 
-    print("3 find", remainNum, "most difference feature pairs")
+    print("\n3 find", remainNum, "most difference feature pairs")
     findMax(remainNum)
 
-    print("4 delete edges")
+    print("\n4 delete edges")
     delEgdes()
 
     outRelations(cachePath)

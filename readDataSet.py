@@ -2,17 +2,8 @@ import pandas as pd
 import os
 
 
-class data():
-    edges = []
-    relateEdges = None
-    predictDataFrames = []
-    trainDataFrames = []
-    typeNum = None
-    remainIndex = None
-
-
 def createDataSet(path):
-    dataList=[]
+    dataList = []
     for maindir, subdir, file_name_list in os.walk(path):
         for filename in file_name_list:
             if not str(filename).endswith('.txt'):
@@ -21,7 +12,7 @@ def createDataSet(path):
             dataList.append(apath)
     dataList.sort()
     for apath in dataList:
-        print(apath)
+        print(' ' + apath)
         readFile(apath)
 
     # change index
@@ -43,7 +34,9 @@ def readFile(path):
     return
 
 
-def readDataRun(dataPath):
-    print("0 read data")
+def readDataRun(dataCache, dataPath):
+    global data
+    data = dataCache
+    print("\n0 read data")
     createDataSet(dataPath)
-    return data
+    return

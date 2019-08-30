@@ -7,42 +7,40 @@ import predict as prdct
 import readDataSet as rddt
 
 
-def runAll(minNum, coNum, mult, remainNum, remainRatio, dataPath, cachePath):
+class data():
+    edges = []
+    relateEdges = None
+    predictDataFrames = []
+    trainDataFrames = []
+    typeNum = None
+    remainIndex = None
+
+
+def runAll(minNum, remainNum, remainRatio, dataPath, cachePath):
+    print()
     print("data:", dataPath)
+    print("cache:", cachePath)
     folder = os.path.exists(cachePath)
     if not folder:  # create directory
         os.makedirs(cachePath)
 
-    dataCache = rddt.readDataRun(dataPath=dataPath)
-    pt.preTreatRun(dataCache=dataCache, minNum=minNum, remainRatio=remainRatio, cachePath=cachePath)
-    cclt.calculateRun(dataCache=dataCache, remainNum=remainNum, cachePath=cachePath)
-    prdct.predictRun(dataCache=dataCache, coNum=coNum, mult=mult)
+    rddt.readDataRun(dataCache=data, dataPath=dataPath)
+    pt.preTreatRun(dataCache=data, minNum=minNum, remainRatio=remainRatio, cachePath=cachePath)
+    cclt.calculateRun(dataCache=data, remainNum=remainNum, cachePath=cachePath)
+    prdct.predictRun(dataCache=data, coNum=10)  # coNum      test by coNum-fold
 
 
 if __name__ == '__main__':
-    
-    # 200 is the number of edges remained
-    # 0.7 for BRCA data, 0.8 for other data
-    # preSet = [200, 0.7]
-    preSet = [200, 0.8]
+    preSet = ['LUSC_Stages', 0.8, 100, 10]
+    # preSet = ['KIRC_Grades', 0.8, 100, 10]
+    # preSet = ['BRCA_Subtypes', 0.7, 100, 10]
 
     for i in range(len(sys.argv) - 1):
         preSet[i] = sys.argv[i + 1]
 
-    remainNum = int(preSet[0])
-    remainRatio = float(preSet[1])
-
-    testData = "LUSC_Stages"
-    preName = os.path.basename(__file__).split(".")[0]
-    cachePath = "./cache_" + testData + "_" + str(remainNum) + "/"
-
-    # remainNum  each type remain edges
-    # coNum      test by coNum-fold
-    # mult       delta's power
-    runAll(minNum=10,
-           remainNum=remainNum,
-           remainRatio=remainRatio,
-           coNum=10,
-           mult=0.66,
-           dataPath=testData+'/',
-           cachePath=cachePath)
+    runAll(
+        remainRatio=float(preSet[1]),
+        remainNum=int(preSet[2]),  # each type remain edges' count
+        minNum=int(preSet[3]),  # pretreat remain data larger than
+        dataPath=preSet[0] + '/',
+        cachePath="./cache/cache_" + str(preSet[0]) + "_" + str(preSet[1]) + "/")

@@ -49,7 +49,7 @@ def toLog():
 def preTreatRun(dataCache, minNum, remainRatio, cachePath):
     global data
     data = dataCache
-    print("1_1 pretreat min by", minNum)
+    print("\n1_1 pretreat min by", minNum)
     cutOffByMin(minNum=minNum)
 
     print("1_2 remain std by", remainRatio)
