@@ -6,10 +6,12 @@ Python implementation of the Specific Co-Expression Perturbation (SCP) based sam
 If you make use of this code in your own work, please cite our paper:
 
 ```
-@inproceedings{SCP,
-  title={Multi-classification of Cancer Samples based on Co-expression Analyses},
-  author={Hongyang Jiang, Hongyang Jiang, Liang Chen, Zhi Li, Ying Xu, Huiyan Sun, and Yi Chang},
-  booktitle={2019 IEEE International Conference on Bioinformatics and Biomedicine},
-  year={2019}
+@inproceedings{jiang2019multi,
+  title={Multi-Classification of Cancer Samples Based on Co-Expression Analyses},
+  author={Jiang, Hongyang and Huang, Qiang and Chen, Liang and Li, Zhi and Xu, Ying and Sun, Huiyan and Chang, Yi},
+  booktitle={2019 IEEE International Conference on Bioinformatics and Biomedicine (BIBM)},
+  pages={197--201},
+  year={2019},
+  organization={IEEE}
 }
 ```
